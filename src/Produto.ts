@@ -28,6 +28,10 @@ export class Produto {
   set avaliacao(val: number) {
     this._avaliacao = val;
   }
+
+  public aplicarDesconto(): void {
+    this.preco -= this.preco * (0 / 100);
+  }
 }
 
 export class Eletronicos extends Produto {
