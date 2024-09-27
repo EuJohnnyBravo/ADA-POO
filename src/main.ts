@@ -31,6 +31,4 @@ user.removerProdutoLista(produto5);
 user.removerProdutoLista(produto7);
 console.log(user.listaDesejos);
 
-console.log(Produto.DESCONTO_PADRAO);
-Produto.mudarDescontoPadrao(10);
-console.log(Produto.DESCONTO_PADRAO);
+console.log(Produto.listaDeProdutos());
