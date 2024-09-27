@@ -1,9 +1,17 @@
-export class Produto {
+interface ProdutoBase {
+  _nome: string;
+  _preco: number;
+  _avaliacao: number;
+}
+
+export class Produto implements ProdutoBase {
   constructor(
-    private _nome: string,
-    private _preco: number,
-    private _avaliacao: number
+    public _nome: string,
+    public _preco: number,
+    public _avaliacao: number
   ) {}
+
+  static DESCONTO_PADRAO = 5;
 
   get nome() {
     return this._nome;
@@ -30,19 +38,23 @@ export class Produto {
   }
 
   public aplicarDesconto(): void {
-    this.preco -= this.preco * (0 / 100);
+    this.preco -= this.preco * (Produto.DESCONTO_PADRAO / 100);
+  }
+
+  static mudarDescontoPadrao(novoDesconto: number) {
+    Produto.DESCONTO_PADRAO = novoDesconto;
   }
 }
 
 export class Eletronicos extends Produto {
   public aplicarDesconto(): void {
-    this.preco -= this.preco * (10 / 100);
+    this.preco -= this.preco * (Produto.DESCONTO_PADRAO / 100);
   }
 }
 
 export class Eletrodomestico extends Produto {
   public aplicarDesconto(): void {
-    this.preco -= this.preco * (5 / 100);
+    this.preco -= this.preco * (Produto.DESCONTO_PADRAO / 100);
   }
 }
 
@@ -65,6 +77,6 @@ export class Roupas extends Produto {
   }
 
   public aplicarDesconto(): void {
-    this.preco -= this.preco * (15 / 100);
+    this.preco -= this.preco * (Produto.DESCONTO_PADRAO / 100);
   }
 }

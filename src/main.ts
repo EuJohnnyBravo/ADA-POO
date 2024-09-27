@@ -1,6 +1,6 @@
 import { Usuario } from "./Usuario";
 import { Endereco } from "./Endereco";
-import { Eletronicos, Eletrodomestico, Roupas } from "./Produto";
+import { Eletronicos, Eletrodomestico, Roupas, Produto } from "./Produto";
 
 const endereco = new Endereco("rua A", "Gravataí", "12345-000", 115);
 const user = new Usuario("Rodrigo", endereco, "rodi", []);
@@ -30,3 +30,7 @@ user.removerProdutoLista(produto3);
 user.removerProdutoLista(produto5);
 user.removerProdutoLista(produto7);
 console.log(user.listaDesejos);
+
+console.log(Produto.DESCONTO_PADRAO);
+Produto.mudarDescontoPadrao(10);
+console.log(Produto.DESCONTO_PADRAO);
